@@ -1,0 +1,199 @@
+/* ================== About Hero Section ================== */
+.about_hero {
+  padding: 2rem 0;
+}
+
+.about_content{
+    margin-bottom: 100px;
+}
+
+.about_content h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--heading-color);
+}
+
+.about_content h1 .highLight {
+  color: var(--secondary-color);
+}
+
+.about_content p {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  color: var(--text-color);
+}
+
+.about_subtitle img {
+  width: 2.3rem;
+  height: 2.3rem;
+  margin-left: 0.5rem;
+}
+
+.about_img{
+  width: 90%;
+  height: 520px;
+  border-radius: 15px;
+  object-fit: cover;
+  /* border: 1px solid var(--secondary-color); */
+  margin:auto;
+}
+
+.about_img img{
+  width: 100%;
+}
+
+/* ================== Mission & Vision Section ================== */
+.about_mission {
+  padding: 3rem 0;
+   background-color: #f7f4f46a;
+}
+
+.mission_card{
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.mission_card img{
+  width: 200px;
+}
+
+.about_mission h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+.about_mission p {
+  font-size: 1.05rem;
+  color: var(--text-color);
+  line-height: 1.7rem;
+}
+
+/* ================== Why Choose Us Section ================== */
+.about_choose {
+  padding: 4rem 0;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.about_choose h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.choose_box {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.choose_box img{
+  width: 100px;
+}
+
+.choose_box:hover {
+  transform: translateY(-5px);
+}
+
+.choose_box h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.choose_box p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* ================== Team Section ================== */
+.about_team {
+  padding: 4rem 0;
+}
+
+.team_box {
+  margin-bottom: 2rem;
+  transition: 0.3s;
+}
+
+.team_box:hover {
+  transform: translateY(-5px);
+}
+
+.team_img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--secondary-color);
+}
+
+.team_box h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.team_box p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* ================== Responsive Design ================== */
+@media only screen and (max-width: 992px) {
+  .about_content h1 {
+    font-size: 2.3rem;
+  }
+  .about_choose h2,
+  .about_mission h2 {
+    font-size: 1.8rem;
+  }
+  .team_img  {
+    height:300px;
+    
+  } 
+
+  .team_img img{
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about_img {
+    height: 400px;
+  }
+
+  .about_img img{
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .about_content h1 {
+    font-size: 1.8rem;
+  }
+
+  /* .about_content p{
+     text-align: start;
+  } */
+
+  .about_choose h2,
+  .about_mission h2 {
+    font-size: 1.5rem;
+  }
+  .team_img {
+    height: 200px;
+  }
+}
