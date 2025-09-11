@@ -32,8 +32,7 @@ const TourDetails = () => {
     e.preventDefault()
     const reviewText = reviewMsgRef.current.value;
 
-   
-    
+  
     try {
 
        if(!user || user === undefined || user===null) {
@@ -48,16 +47,14 @@ const TourDetails = () => {
 
       const res = await fetch(`${BASE_URL}/review/${id}`, {
         method:'post',
-        headers:{
-          'content-type': 'application/json'
-        },
+        headers:{'content-type': 'application/json'},
         credentials:'include',
         body:JSON.stringify(reviewObj),
       });
 
       const result = await res.json()
       if (!res.ok) {
-           return alert(result.message) 
+          return alert(result.message) 
       }
       alert(result.message)
     } catch (error) {

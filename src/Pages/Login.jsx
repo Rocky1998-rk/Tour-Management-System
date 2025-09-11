@@ -32,8 +32,7 @@ const Login = () => {
 
       try {
 
-        const res = await fetch(`${BASE_URL}/auth/login`,{
-         method:'post',
+        const res = await fetch(`${BASE_URL}/auth/login`,{ method:'post',
           headers:{
             'content-type': 'application/json'
           },

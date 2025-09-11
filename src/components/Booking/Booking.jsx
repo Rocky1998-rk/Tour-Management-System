@@ -38,17 +38,14 @@ const Booking = ({ tour, avgRating }) => {
         console.log(booking)
         
         try {
-            if(!user || user === undefined || user===null){
+            if(!user || user === undefined || user === null){
                 return alert ('please sign in')
             }
           
             const res = await fetch(`${BASE_URL}/booking`,{
                 method:'post',
-                headers:{
-                    'content-type':'application/json'
-                },
-                credentials:'include',
-                body:JSON.stringify(booking)
+                headers:{'content-type':'application/json'},
+                credentials:'include', body:JSON.stringify(booking)
             })
 
              const result = await res.json()
