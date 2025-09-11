@@ -15,7 +15,7 @@ const Router = () => {
   return (
     <>
     
-    <ToastContainer position="top-right" autoClose={3000} />
+    <ToastContainer position="top-right" autoClose={2000} />
     <Routes>
       <Route path="/" element={<Navigate to='/home'/>} />
       <Route path='/home' element={<Home/>} />
