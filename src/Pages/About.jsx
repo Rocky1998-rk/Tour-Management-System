@@ -12,6 +12,8 @@ import Testimonial from "../components/Testimonial/Testimonial";
 import Newsletter from "../shared/Newsletter";
 
 const About = () => {
+
+  
   return (
     <>
       {/* ================== Hero / Intro Section ================== */}

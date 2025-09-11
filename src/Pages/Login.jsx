@@ -4,9 +4,9 @@ import {Link, useNavigate} from 'react-router-dom'
 import '../style/login.css'
 import loginImg from '../assets/images/login.png'
 import userIcon from '../assets/images/user.png'
-
 import{ AuthContext } from './../context/AuthContext';
 import {BASE_URL} from './../utils/config';
+import { toast } from "react-toastify";
 
 const Login = () => {
 
@@ -43,13 +43,17 @@ const Login = () => {
         })
 
         const result = await res.json()
-        if(!res.ok) alert(result.message)
-
+        if(!res.ok) {
+        toast.error(result.message)  
+        return;
+    }
           dispatch({ type:'LOGIN_SUCCESS', payload: result.data })
+          toast.success("Login successful!") 
           navigate('/')
 
       } catch (error) {
         dispatch({ type:'LOGIN_FAILURE', payload: error.message })
+        toast.error("Something went wrong!")
       }
     };
 

@@ -9,6 +9,7 @@ import Newsletter from './../shared/Newsletter';
 import useFetch from './../hooks/useFetch';
 import {BASE_URL} from './../utils/config';
 import { AuthContext } from '../context/AuthContext';
+import { toast } from "react-toastify";
 
 const TourDetails = () => {
   const {id} = useParams();
@@ -31,12 +32,12 @@ const TourDetails = () => {
   const submitHandler = async  e => {
     e.preventDefault()
     const reviewText = reviewMsgRef.current.value;
-
-  
+   
     try {
 
        if(!user || user === undefined || user===null) {
-       alert(' Please sign in ');
+        toast.error("Please sign in!");
+        return;
     }
 
     const reviewObj = {
@@ -54,11 +55,15 @@ const TourDetails = () => {
 
       const result = await res.json()
       if (!res.ok) {
-          return alert(result.message) 
+          toast.error(result.message);
+          return;
       }
-      alert(result.message)
+
+      toast.success(result.message);
+      
+
     } catch (error) {
-      alert(error.message)
+       toast.error(error.message);
     }
   };
 

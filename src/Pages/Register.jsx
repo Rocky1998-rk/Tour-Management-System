@@ -4,9 +4,9 @@ import {Link, useNavigate} from 'react-router-dom'
 import '../style/login.css'
 import registerImg from '../assets/images/register.png';
 import userIcon from '../assets/images/user.png';
-
 import{ AuthContext } from './../context/AuthContext';
 import {BASE_URL} from './../utils/config';
+import { toast } from "react-toastify";
 
 const Register = () => {
 
@@ -39,13 +39,16 @@ const Register = () => {
 
         const result = await res.json()
 
-        if(!res.ok) alert(result.message)
-
+        if(!res.ok) {
+          toast.error(result.message);
+          return;
+        }
+          toast.success("Registration successful! Please login.");
           dispatch({ type:'REGISTER_SUCCESS' })
           navigate('/login')
         
       } catch (error) {
-        alert(error.message)
+         toast.error(error.message);
       }
     }
 

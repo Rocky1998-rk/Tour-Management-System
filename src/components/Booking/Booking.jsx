@@ -4,6 +4,8 @@ import {Form, FormGroup, ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/config';
+import { toast } from "react-toastify";
+
 
 const Booking = ({ tour, avgRating }) => {
     const {price, reviews, title} = tour;
@@ -39,7 +41,8 @@ const Booking = ({ tour, avgRating }) => {
         
         try {
             if(!user || user === undefined || user === null){
-                return alert ('please sign in')
+                 toast.error("Please sign in first!");
+                return 
             }
           
             const res = await fetch(`${BASE_URL}/booking`,{
@@ -51,13 +54,14 @@ const Booking = ({ tour, avgRating }) => {
              const result = await res.json()
 
              if(!res.ok){
-                return alert(result.message)
+                toast.error(result.message || "Booking failed!")
+                return 
              }
-
+             toast.success("Booking successful!");
              navigate('/thank-you')
 
         } catch (error) {
-            alert(error.message)
+           toast.error(error.message || "Something went wrong!");
         }
 
     }

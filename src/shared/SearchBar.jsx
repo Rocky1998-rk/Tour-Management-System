@@ -2,7 +2,7 @@ import React, {useRef} from 'react'
 import '../shared/search-bar.css'
 import {  Col, Form, FormGroup } from 'reactstrap'
 import {BASE_URL} from './../utils/config'
-
+import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom'
 
 const SearchBar = () => {
@@ -18,15 +18,19 @@ const SearchBar = () => {
 
 
     if(location === '' || distance === '' || maxGroupSize === ''){
-        return alert('All fields are required')
+        toast.error("All fields are required!");
+        return;
     }
 
     const res = await fetch(`${BASE_URL}/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`)
 
-    if (!res.ok) alert("Something went wrong")
+    if (!res.ok){
+        toast.error("Something went wrong");
+        return;
+    }
 
-      const result =await res.json()
-
+    const result = await res.json()
+    toast.success("Search completed successfully!");
     navigate(`/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`, {state: result.data})
 };
 
