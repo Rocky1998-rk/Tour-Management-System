@@ -31,7 +31,11 @@ const Header = () => {
   const logout = () => {
     dispatch({type:'LOGOUT'})
     toast.success("User Logout!")
-    navigate('/')
+    setTimeout(() => {
+
+      navigate("/");
+    }, 1500);
+
   }
 
 
