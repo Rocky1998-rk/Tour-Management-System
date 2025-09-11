@@ -3,8 +3,8 @@ import { Container, Row, Button} from 'reactstrap';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo.png'
 import './header.css'
-
 import { AuthContext } from './../../context/AuthContext';
+import { toast } from "react-toastify";
 
 const nav_links = [
   {
@@ -30,6 +30,7 @@ const Header = () => {
 
   const logout = () => {
     dispatch({type:'LOGOUT'})
+    toast.success("User Logout!")
     navigate('/')
   }
 
